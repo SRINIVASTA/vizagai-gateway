@@ -86,7 +86,7 @@ if check_community_access():
     st.title(f"{BRAND_LOGO} {BRAND_NAME} - White Label API Portal")
     st.caption("Provision isolated background automated WhatsApp channels instantly.")
 
-    col1, col2 = st.columns()
+    col1, col2 = st.columns(2)
 
     with col1:
         st.subheader("🛠️ Provision New Channel")
