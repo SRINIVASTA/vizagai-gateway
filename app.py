@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 import base64
 import time
-import os
 
 # ==============================================================================
 # 1. CORE CONFIGURATION & ENVIRONMENTAL SECURITY
@@ -57,7 +56,7 @@ def create_new_instance(instance_name):
     }
     try:
         response = requests.post(endpoint, json=payload, headers=headers, timeout=15)
-        if response.status_code in:
+        if response.status_code == 201 or response.status_code == 200:
             return response.json()
         else:
             st.error(f"Backend Engine Error ({response.status_code}): {response.text}")
@@ -87,7 +86,7 @@ if check_community_access():
     st.title(f"{BRAND_LOGO} {BRAND_NAME} - White Label API Portal")
     st.caption("Provision isolated background automated WhatsApp channels instantly.")
 
-    col1, col2 = st.columns([1, 2])
+    col1, col2 = st.columns()
 
     with col1:
         st.subheader("🛠️ Provision New Channel")
